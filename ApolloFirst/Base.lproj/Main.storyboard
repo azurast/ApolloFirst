@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Launches-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ApolloFirst" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LaunchesListVC" title="Launches" id="BYZ-38-t0r" customClass="LaunchesListViewController" customModule="ApolloFirst" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,6 +44,7 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="launchLable" destination="q7c-tg-Apl" id="Gwm-YA-SJh"/>
+                                            <segue destination="WuA-Sc-Zvx" kind="showDetail" identifier="LaunchDetailSegue" id="mOr-sY-7ba"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -60,6 +61,33 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="102.45535714285714"/>
+        </scene>
+        <!--Details-->
+        <scene sceneID="H5G-kk-6t1">
+            <objects>
+                <viewController storyboardIdentifier="LaunchesDetailVC" title="Details" id="0yb-SQ-eDr" customClass="LaunchDetailViewController" customModule="ApolloFirst" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qBg-54-CqJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Some Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="StJ-jO-U02">
+                                <rect key="frame" x="161" y="374" width="92" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="C4D-hw-8Jw"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detail" id="GW6-TD-NWy">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="pE5-Hr-exW"/>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yTz-mr-4Fb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2771.0144927536235" y="101.78571428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="f6X-c2-BiE">
@@ -78,6 +106,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0lb-Vp-swY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="102.45535714285714"/>
+        </scene>
+        <!--Launches-->
+        <scene sceneID="lDK-3N-bjf">
+            <objects>
+                <navigationController title="Launches" automaticallyAdjustsScrollViewInsets="NO" id="WuA-Sc-Zvx" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="deg-Ei-kXP">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0yb-SQ-eDr" kind="relationship" relationship="rootViewController" id="igX-ya-vYG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OdK-wS-SAs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1860.8695652173915" y="101.78571428571428"/>
         </scene>
     </scenes>
     <resources>

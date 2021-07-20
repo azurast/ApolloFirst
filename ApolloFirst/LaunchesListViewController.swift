@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class LaunchesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var launches = [LaunchListQuery.Data.Launch.Launch]()
     enum ListSection: Int, CaseIterable {
@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.title = "Launches"
         launchesTable.delegate = self
         launchesTable.dataSource = self
         self.loadLaunches()
@@ -55,6 +55,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.launchLable?.text = launch.site
           }
           return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO : use protocol
+        // let selectedRow = self.launches[indexPath.row]
+        performSegue(withIdentifier: "LaunchDetailSegue", sender: self)
     }
     
     private func loadLaunches() {
