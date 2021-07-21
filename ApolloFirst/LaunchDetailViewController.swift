@@ -6,26 +6,32 @@
 //
 
 import UIKit
+import Apollo
 
 class LaunchDetailViewController: UIViewController {
 
+    @IBOutlet weak var launchLabel: UILabel!
     var selectedRow: Int!
+    var launchID: GraphQLID? {
+        didSet {
+            self.configureView()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.white
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func configureView() {
+        print("this line is executed")
+        guard
+            let label = self.launchLabel,
+            let id = self.launchID else {
+            return
+        }
+        
+        label.text = "Launch \(id)"
     }
-    */
 
 }

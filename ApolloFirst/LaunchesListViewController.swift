@@ -9,6 +9,7 @@ import UIKit
 
 class LaunchesListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var launchDetailVC: LaunchDetailViewController? = nil
     var launches = [LaunchListQuery.Data.Launch.Launch]()
     enum ListSection: Int, CaseIterable {
       case launches
@@ -58,9 +59,11 @@ class LaunchesListViewController: UIViewController, UITableViewDelegate, UITable
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO : use protocol
-        // let selectedRow = self.launches[indexPath.row]
-        performSegue(withIdentifier: "LaunchDetailSegue", sender: self)
+        let launch = self.launches[indexPath.row]
+        let launchDetailVC = LaunchDetailViewController()
+        launchDetailVC.title = launch.site
+        launchDetailVC.launchID = launch.id
+        navigationController?.pushViewController(launchDetailVC, animated: true)
     }
     
     private func loadLaunches() {
